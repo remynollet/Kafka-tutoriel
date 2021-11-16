@@ -1,0 +1,140 @@
+asyncapi: "2.0.0"
+id: "urn:com:mybusiness:test:domain:data"
+tags:
+  - name: mydomain
+    description: the domain responsible of the datatype
+  - name: datatype
+    description: the datatype
+info:
+  title: Domain Data
+  version: "1.1.0"
+  description: |
+    Domain Data AsyncAPI Specification
+  license:
+    name: mybusiness_united
+    url: https://www.mybusiness.com/licenses
+  contact:
+    name: the app team
+    email: cs-appteam@mybusiness.com
+    url: https://github.com/dktunited/myteam
+servers:
+  test:
+    url: kafka://kafka:9092
+    protocol: kafka
+    description: Test broker
+
+defaultContentType: application/avro
+
+channels:
+  myFunctionalData_v1:
+    description: The topic where data event are stored
+    subscribe:
+      summary: Inform about my functional data event
+      operationId: receiveFunctional data
+      description: the operation in Java to consume the event
+      traits:
+        - $ref: "#/components/operationTraits/kafka"
+      message:
+        $ref: "#/components/messages/myFuncData"
+
+components:
+  messages:
+    myFuncData:
+      name: FuncData
+      title: Functional Data
+      summary: Inform about my functional data.
+      contentType: "avro/binary"
+      schemaFormat: "application/vnd.apache.avro+json;version=1.9.0"
+      bindings:
+        kafka:
+          key:
+            type: string
+            description: Timestamp of event as milliseconds since 1st Jan 1970
+      headers:
+        $ref: "#/components/schemas/cloudevents-headers"
+      payload:
+        $ref: "#/components/schemas/FuncDataPayload"
+      examples:
+        - name: ex1
+          summary: Example for first user
+          headers:
+            ce_specversion: "1.0"
+            ce_type: "com.mybusiness.tdd-test.funcData"
+            ce_source: "com.mybusiness.tdd-test.funcApp"
+            ce_id: "{{uuid()}}"
+            ce_time: "{{now(yyyy-MM-dd'T'HH:mm:SS'Z')}}"
+            content-type: application/avro
+            sendAt: "{{now()}}"
+          payload:
+            id: "{{randomString(32)}}"
+            sendAt: "{{now()}}"
+            fullName: John Doe
+            email: john.doe@mybusiness.com
+            age: 36
+
+  schemas:
+    FuncDataPayload:
+      type: object
+      properties:
+        id:
+          type: string
+        fullName:
+          type: string
+        email:
+          type: string
+          format: email
+        age:
+          type: integer
+          minimum: 18
+        sentAt:
+          type: string
+          format: date-time
+    cloudevents-headers:
+      type: object
+      required:
+        - ce_specversion
+        - ce_id
+        - ce_source
+        - ce_type
+      properties:
+        ce_specversion:
+          type: string
+          description: The version of the CloudEvents specification which the event uses.
+          enum:
+            - "1.0"
+        ce_id:
+          type: string
+          minLength: 1
+          description: Identifies the event.
+        ce_source:
+          type: string
+          format: uri-reference
+          minLength: 1
+          description: Identifies the context in which an event happened.
+        ce_type:
+          type: string
+          minLength: 1
+          description: Describes the type of event related to the originating occurrence.
+        ce_datacontenttype:
+          type: string
+          description: Content type of the data value. Must adhere to RFC 2046 format.
+        ce_dataschema:
+          type: string
+          description: Identifies the schema that data adheres to.
+        ce_subject:
+          type: string
+          description: Describes the subject of the event in the context of the event producer (identified by source).
+        ce_time:
+          type: string
+          format: date-time
+          description: Timestamp of when the occurrence happened. Must adhere to RFC 3339.
+        content-type:
+          type: string
+          enum:
+            - application/avro
+
+  operationTraits:
+    kafka:
+      bindings:
+        kafka:
+          clientId: my-app-id
