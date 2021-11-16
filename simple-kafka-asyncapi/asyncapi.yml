@@ -1,0 +1,86 @@
+asyncapi: '2.1.0'
+id: 'urn:com:ddecathlon:test:domain:data'
+info:
+  title: Domain Data
+  version: '1.0.0'
+  description: |
+    Domain Data AsyncAPI Specification
+  license:
+    name: decathlon_united
+    url: https://www.decathlon.com/licenses
+
+servers:
+  test:
+    url: kafka://kafka:9092
+    protocol: kafka
+    description: Test broker
+
+defaultContentType: application/json
+
+channels:
+  myFunctionalData_v1:
+    description: The topic where data event are stored
+    subscribe:
+      summary: Inform about my functional data event
+      operationId: receiveFunctional Data
+      traits:
+        - $ref: '#/components/operationTraits/kafka'
+      message:
+        $ref: '#/components/messages/myFuncData'
+
+components:
+  messages:
+    myFuncData:
+      name: FuncData
+      title: Functional Data
+      summary: Inform about my functional data.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/commonHeaders'
+      payload:
+        $ref: "#/components/schemas/FuncDataPayload"
+      examples:
+        - name: ex1
+          summary: Example for first user
+          headers: 
+            my-app-header: 23
+          payload: 
+            id: '{{randomString(32)}}'
+            sendAt: '{{now()}}'
+            fullName: John Doe
+            email: john.doe@decathlon.com
+            age: 36
+
+  schemas:
+    FuncDataPayload:
+      type: object
+      properties:
+        id:
+          type: string
+        fullName:
+          type: string
+        email:
+          type: string
+          format: email
+        age:
+          type: integer
+          minimum: 18
+        sentAt:
+          type: string
+          format: date-time
+          
+  messageTraits:
+    commonHeaders:
+      headers:
+        type: object
+        properties:
+          my-app-header:
+            type: integer
+            minimum: 0
+            maximum: 100
+
+  operationTraits:
+    kafka:
+      bindings:
+        kafka:
+          clientId: my-app-id

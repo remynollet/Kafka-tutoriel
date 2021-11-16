@@ -1,0 +1,14 @@
+{
+    "name": "doe",
+    "surname": "john",
+    "uid": "jdoe123",
+    "birthdate": "2021-03-22",
+    "email": "john.doe@gmail.com",
+    "address": {
+        "address_id": "132",
+        "number": "12",
+        "streetname": "grednview street",
+        "cityname": "BlueCity",
+        "postalcode": "132546"
+    }
+}

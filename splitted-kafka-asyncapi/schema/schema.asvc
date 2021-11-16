@@ -1,0 +1,16 @@
+    name: FuncDataPayload
+    type: object
+    properties:
+      id:
+        type: string
+      fullName:
+        type: string
+      email:
+        type: string
+        format: email
+      age:
+        type: integer
+        minimum: 18
+      sentAt:
+        type: string
+        format: date-time
