@@ -1,16 +1,56 @@
-    name: FuncDataPayload
-    type: object
-    properties:
-      id:
-        type: string
-      fullName:
-        type: string
-      email:
-        type: string
-        format: email
-      age:
-        type: integer
-        minimum: 18
-      sentAt:
-        type: string
-        format: date-time
+{
+  "name": "user",
+  "type": "record",
+  "namespace": "com.test.user.avro",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "surname",
+      "type": "string"
+    },
+    {
+      "name": "uid",
+      "type": "string"
+    },
+    {
+      "name": "birthdate",
+      "type": "string"
+    },
+    {
+      "name": "email",
+      "type": "string"
+    },
+    {
+      "name": "address",
+      "type": {
+        "name": "address",
+        "type": "record",
+        "fields": [
+          {
+            "name": "address_id",
+            "type": "string"
+          },
+          {
+            "name": "number",
+            "type": "string"
+          },
+          {
+            "name": "streetname",
+            "type": "string"
+          },
+          {
+            "name": "cityname",
+            "type": "string"
+          },
+          {
+            "name": "postalcode",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}
