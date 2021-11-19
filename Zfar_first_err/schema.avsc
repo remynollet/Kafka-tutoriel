@@ -1,5 +1,5 @@
 {
-    "name": "sapecczar_first_err",
+    "name": "test",
     "type": "record",
     "namespace": "com.decathlon.valuechain.sapecczar_first_err",
     "fields": [
