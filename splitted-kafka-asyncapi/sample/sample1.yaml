@@ -9,14 +9,14 @@ headers:
   content-type: application/avro
   sentAt: "2020-03-11T08:03:38Z"
 payload:
-  uid: "remynollet22"
+  uid: "rnoll22"
   birthdate: "1970-01-21"
   email: "remy.nollet@gmail.com"
   name: "nollet"
   surname: "remy"
   address:
-    address_id: "132"
+    address_id: 132
     cityname: "BlueCity"
-    number: "12"
-    postalcode: "123456"
+    number: 12
+    postalcode: 123456
     streetname: "PinkStreet Ave"

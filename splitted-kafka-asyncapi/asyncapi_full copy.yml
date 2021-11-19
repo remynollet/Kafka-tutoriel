@@ -1,0 +1,64 @@
+asyncapi: "2.2.0"
+id: "urn:com:decathlon:test:domain:data"
+tags:
+  - name: domainData
+info:
+  title: Domain Data
+  version: "1.2.0"
+  description: |
+    Domain Data AsyncAPI Specification
+  license:
+    name: decathlon_united
+    url: https://www.decathlon.com/licenses
+  contact:
+    name: team support
+    url: "https://blah.com"
+    email: team.support@gmail.com
+servers:
+  test:
+    url: kafka://kafka:9092
+    protocol: kafka
+    description: Test broker
+channels:
+  animals/detections:
+    subscribe:
+      message:
+        $ref: '#/components/messages/AnimalMessage'
+components:
+  messages:
+    AnimalMessage:
+      contentType: application/octet-stream
+      schemaFormat: application/vnd.apache.avro+json;version=1.9.0
+      traits:
+        - $ref: 'https://raw.githubusercontent.com/microcks/microcks-quickstarters/main/cloud/cloudevents/cloudevents-v1.0.1-asyncapi-trait.yml'
+      payload:
+        $ref: './animal-message-payload.avsc#/Animal'
+      examples:
+        - name: Zaza
+          summary: Detected pet
+          headers:
+            ce_specversion: '1.0.1'
+            ce_type: AnimalInFrameEvent
+            ce_source: /acme.com/animal-sensor/lbroudoux-garden
+            ce_id: "{{uuid()}}"
+            ce_time: "{{now(yyyy-MM-dd'T'HH:mm:SS'Z')}}"
+            content-type: application/avro
+          payload:
+            type: CAT
+            score: 0.99
+            name: Zaza
+            detectedOn: "{{now(yyyy-MM-dd'T'HH:mm:SS'Z')}}"
+        - name: Sonic
+          summary: Detected animal
+          headers:
+            ce_specversion: '1.0.1'
+            ce_type: AnimalOutFrameEvent
+            ce_source: /acme.com/animal-sensor/lbroudoux-garden
+            ce_id: "{{uuid()}}"
+            ce_time: "{{now(yyyy-MM-dd'T'HH:mm:SS'Z')}}"
+            content-type: application/avro
+          payload:
+            type: HEDGEHOG
+            score: 0.80
+            name: 'null'
+            detectedOn: "{{now(yyyy-MM-dd'T'HH:mm:SS'Z')}}"

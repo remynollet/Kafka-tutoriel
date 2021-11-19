@@ -22,7 +22,7 @@ channels:
     description: The topic where data event are stored
     subscribe:
       summary: Inform about my functional data event
-      operationId: receiveFunctional Data
+      operationId: receiveFunctionalData
       traits:
         - $ref: '#/components/operationTraits/kafka'
       message:

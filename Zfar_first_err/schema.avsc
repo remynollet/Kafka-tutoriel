@@ -1,0 +1,103 @@
+{
+    "name": "sapecczar_first_err",
+    "type": "record",
+    "namespace": "com.decathlon.valuechain.sapecczar_first_err",
+    "fields": [
+        {
+            "name": "MANDT",
+            "type": "string"
+        },
+        {
+            "name": "MATNR",
+            "type": "string"
+        },
+        {
+            "name": "EKORG",
+            "type": "string"
+        },
+        {
+            "name": "CODE_SAIS",
+            "type": "string"
+        },
+        {
+            "name": "ZETAPE_PROCESS",
+            "type": "string"
+        },
+        {
+            "name": "ZINCREMENT",
+            "type": "string"
+        },
+        {
+            "name": "ZMODELE",
+            "type": "string"
+        },
+        {
+            "name": "TYPE",
+            "type": "string"
+        },
+        {
+            "name": "ZLIB_SUPPORT",
+            "type": "string"
+        },
+        {
+            "name": "ZLIB_USER",
+            "type": "string"
+        },
+        {
+            "name": "ZLIB_USER_EN",
+            "type": "string"
+        },
+        {
+            "name": "DATE_ERR",
+            "type": "string"
+        },
+        {
+            "name": "TSOMZET",
+            "type": "string"
+        },
+        {
+            "name": "ZOK_FIRST",
+            "type": "string"
+        },
+        {
+            "name": "REPID",
+            "type": "string"
+        },
+        {
+            "name": "Z_TRAITEMENT",
+            "type": "string"
+        },
+        {
+            "name": "F_GAMME",
+            "type": "string"
+        },
+        {
+            "name": "F_ARTMAS",
+            "type": "string"
+        },
+        {
+            "name": "F_INFREC",
+            "type": "string"
+        },
+        {
+            "name": "F_PLANIF",
+            "type": "string"
+        },
+        {
+            "name": "F_PRICING",
+            "type": "string"
+        },
+        {
+            "name": "F_DEMAND",
+            "type": "string"
+        },
+        {
+            "name": "DATE_DEBUT_TRAIT",
+            "type": "string"
+        },
+        {
+            "name": "HEURE_DEBUT_TRAIT",
+            "type": "string"
+        }
+    ]
+}
