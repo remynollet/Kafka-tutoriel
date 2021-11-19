@@ -1,0 +1,74 @@
+asyncapi: '2.2.0'
+info:
+  title: sapecczar_first_err
+  version: '1.0.0'
+  description: This service publishes events when line are update in the table ZARfirsterr in SAP ECC.
+  license:
+    name: decathlon_united
+    url: https://www.decathlon.com/licenses
+  contact:
+    name: team support
+    url: "https://blah.com"
+    email: team.support@gmail.com
+servers:
+  dev:
+    url: kafka:9092 
+    protocol: kafka
+    description: Test Broker
+  stage:
+    url: decathlon-aoaa-vcstream-uat-01-peered-aoaa.aivencloud.com:12658
+    protocol: kafka-secure
+    description: Stage Aiven Broker Cluster
+  prod:
+    url:  xx
+    protocol: kafka-secure
+    description: Prod Aiven Broker Cluster
+channels:
+  private_dkt_out_connect_zarfirsterr_sap_hana_v1:
+    subscribe:
+      message:
+        $ref: '#/components/message/data'
+components:
+  message:
+    data:
+      contentType: 'application/json'
+      schemaFormat: 'application/vnd.apache.avro;version=1.9.0'
+      traits:
+        - $ref: './ce-cloud.yaml'
+      payload:
+        $ref: './schema.avsc#/sapecczar_first_err'
+      examples:
+        - name: sample1
+          summary: event of sample1
+          headers:
+            ce_specversion: '1.0.0'
+            ce_type: 'com.decathlon.valuechain.sapecczar_first_err'
+            ce_source: 'com.decathlon.valuechain.sapecc'
+            ce_id: "{{uuid()}}"
+            ce_time: "{{now(yyyy-MM-dd'T'HH:mm:SS'Z')}}"
+            content-type: application/avro
+          payload:
+            MANDT: "400"
+            MATNR: "000000000008241327"
+            EKORG: "Z001"
+            CODE_SAIS: "0000054615"
+            ZETAPE_PROCESS: "5M"
+            ZINCREMENT: "0001"
+            ZMODELE: "000000001107776"
+            TYPE: "S"
+            ZLIB_SUPPORT: "L'ajout de fournisseur s'est bien passé  : 72697"
+            ZLIB_USER: "L'ajout de fournisseur s'est bien passé  : 72697"
+            ZLIB_USER_EN: "Supplier add is correct: 72697"
+            DATE_ERR: "20130807"
+            TSOMZET: "235959"
+            ZOK_FIRST: ""
+            REPID: "Z_AR_BT_118"
+            Z_TRAITEMENT: "X"
+            F_GAMME: ""
+            F_ARTMAS: ""
+            F_INFREC: ""
+            F_PLANIF: ""
+            F_PRICING: ""
+            F_DEMAND: ""
+            DATE_DEBUT_TRAIT: "00000000"
+            HEURE_DEBUT_TRAIT: "000000"

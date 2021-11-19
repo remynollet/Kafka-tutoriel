@@ -1,14 +1,19 @@
-asyncapi: '2.2.0'
-id: 'urn:com:ddecathlon:test:domain:data'
+asyncapi: '2.0.0'
+id: 'urn:com:decathlon:test:domain:data'
+tags:
+  - name: domainData
 info:
   title: Domain Data
-  version: '1.0.0'
+  version: '1.2.0'
   description: |
     Domain Data AsyncAPI Specification
   license:
     name: decathlon_united
     url: https://www.decathlon.com/licenses
-
+  contact:
+    name: team support
+    url: 'https://blah.com'
+    email: team.support@gmail.com
 servers:
   test:
     url: kafka://kafka:9092
@@ -18,6 +23,7 @@ channels:
   myFunctionalData_v1:
     description: The topic where data event are stored
     subscribe:
+      description: the application may subscribe to this topic
       message:
         bindings:
           kafka:
@@ -34,7 +40,7 @@ channels:
         contentType: avro/binary
         schemaFormat: application/vnd.apache.avro+json;version=1.9.0
         payload:
-          $ref: 'https://raw.githubusercontent.com/remynollet/Kafka-tutoriel/main/splitted-kafka-asyncapi/schema/schema.asvc'
+          $ref: 'https://raw.githubusercontent.com/remynollet/Kafka-tutoriel/main/splitted-kafka-asyncapi/schema/schema.asvc#/User'
         examples:
           - sample1:
               $ref: 'https://raw.githubusercontent.com/remynollet/Kafka-tutoriel/main/splitted-kafka-asyncapi/sample/sample1.yaml'

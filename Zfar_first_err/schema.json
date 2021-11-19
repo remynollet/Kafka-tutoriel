@@ -1,0 +1,132 @@
+{
+    "$id": "urn:com.decathlon.valuechain.sapecczar_first_err",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "description": "ZFAR FIRST ERR log table",
+    "title": "sapecczar_first_err",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "MANDT": {
+            "type": "string",
+            "description": ""
+        },
+        "MATNR": {
+            "type": "string",
+            "description": ""
+        },
+        "EKORG": {
+            "type": "string",
+            "description": ""
+        },
+        "CODE_SAIS": {
+            "type": "string",
+            "description": ""
+        },
+        "ZETAPE_PROCESS": {
+            "type": "string",
+            "description": ""
+        },
+        "ZINCREMENT": {
+            "type": "string",
+            "description": ""
+        },
+        "ZMODELE": {
+            "type": "string",
+            "description": ""
+        },
+        "TYPE": {
+            "type": "string",
+            "description": ""
+        },
+        "ZLIB_SUPPORT": {
+            "type": "string",
+            "description": ""
+        },
+        "ZLIB_USER": {
+            "type": "string",
+            "description": ""
+        },
+        "ZLIB_USER_EN": {
+            "type": "string",
+            "description": ""
+        },
+        "DATE_ERR": {
+            "type": "string",
+            "description": ""
+        },
+        "TSOMZET": {
+            "type": "string",
+            "description": ""
+        },
+        "ZOK_FIRST": {
+            "type": "string",
+            "description": ""
+        },
+        "REPID": {
+            "type": "string",
+            "description": ""
+        },
+        "Z_TRAITEMENT": {
+            "type": "string",
+            "description": ""
+        },
+        "F_GAMME": {
+            "type": "string",
+            "description": ""
+        },
+        "F_ARTMAS": {
+            "type": "string",
+            "description": ""
+        },
+        "F_INFREC": {
+            "type": "string",
+            "description": ""
+        },
+        "F_PLANIF": {
+            "type": "string",
+            "description": ""
+        },
+        "F_PRICING": {
+            "type": "string",
+            "description": ""
+        },
+        "F_DEMAND": {
+            "type": "string",
+            "description": ""
+        },
+        "DATE_DEBUT_TRAIT": {
+            "type": "string",
+            "description": ""
+        },
+        "HEURE_DEBUT_TRAIT": {
+            "type": "string",
+            "description": ""
+        }
+    },
+    "required": [
+        "MANDT",
+        "MATNR",
+        "EKORG",
+        "CODE_SAIS",
+        "ZETAPE_PROCESS",
+        "ZINCREMENT",
+        "ZMODELE",
+        "TYPE",
+        "ZLIB_SUPPORT",
+        "ZLIB_USER",
+        "ZLIB_USER_EN",
+        "DATE_ERR",
+        "TSOMZET",
+        "ZOK_FIRST",
+        "REPID",
+        "Z_TRAITEMENT",
+        "F_GAMME",
+        "F_ARTMAS",
+        "F_INFREC",
+        "F_PLANIF",
+        "F_PRICING",
+        "F_DEMAND",
+        "DATE_DEBUT_TRAIT",
+        "HEURE_DEBUT_TRAIT"
+    ]
+}
