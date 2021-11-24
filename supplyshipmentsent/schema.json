@@ -1,0 +1,65 @@
+{
+    "$id": "urn:supplyshipment:1.0.0",
+    "title": "SupplyShipmentSent",
+    "description": "Departure of a shipment from one warehouse to another warehouse or to a store.",
+    "type": "object",
+    "properties": {
+      "shipment_id": {
+        "type": "string",
+        "description": "Shipment ID"
+      },
+      "ship_to_party_ean": {
+        "type": "string",
+        "description": "Ship to ID"
+      },
+      "creation_date": {
+        "type": "string",
+        "description": "Shipment creation date (YYYYMMDD)"
+      },
+      "creation_time": {
+        "type": "string",
+        "description": "Shipment creation time (HHMMSS)"
+      },
+      "ship_from_party_ean": {
+        "type": "string",
+        "description": "Ship from ID"
+      },
+      "carrier_ean": {
+        "type": "string",
+        "description": "Carrier ID"
+      },
+      "shipping_date": {
+        "type": "string",
+        "description": "Start of shipment date (YYYYMMDD)"
+      },
+      "shipping_time": {
+        "type": "string",
+        "description": "Start of time (HHMMSS)"
+      },
+      "expected_delivery_date": {
+        "type": "string",
+        "description": "Exepected delivery date (YYYYMMDD)"
+      },
+      "expected_delivery_time": {
+        "type": "string",
+        "description": "Expected delivery time (HHMMSS)"
+      },
+      "alternative_shipment_id": {
+        "type": "string",
+        "description": "Booking Tattoo number"
+      },
+      "shipment_type": {
+        "type": "string",
+        "description": "Shipment type"
+      },
+      "seal_number": {
+        "type": "string",
+        "description": "Seal number"
+      },
+      "license_plate": {
+        "type": "string",
+        "description": "Licence plate number"
+      }
+      },
+    "$schema": "http://json-schema.org/draft-07/schema"
+  }

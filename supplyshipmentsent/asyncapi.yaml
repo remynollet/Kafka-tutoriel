@@ -28,7 +28,7 @@ components:
       traits:
         - $ref: './ce-cloud.yaml'
       payload:
-        $ref: './schema.avsc#/mydata'
+        $ref: './schema.json#/SupplyShipmentSent'
       examples:
         - name: sample1
           summary: event of sample1
